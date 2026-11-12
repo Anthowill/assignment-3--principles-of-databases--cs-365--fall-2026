@@ -1,3 +1,5 @@
 *
 
 !.gitignore
+
+!_01--session_variables.sql
