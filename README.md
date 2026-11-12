@@ -134,9 +134,9 @@ It’s common in industry to have an Excel — or worse, a paper document 
 
 ### 1. Complete the Schema
 
-* Implement a relation between `faculty` and `phone`. Follow the convention found in this project to add your relation via a `.sql` file to the `database` folder
-* Implement a relation between `faculty` and `room`. Follow the convention found in this project to add your relation via a `.sql` file to the `database` folder
-* Implement a relation between `faculty` and `program`. Follow the convention found in this project to add your relation via a `.sql` file to the `database` folder
+* Implement a relation between `faculty` and `phone`. Follow the convention found in this project to add your relation via a `.sql` file to the `database` folder, then update `setup.sql`
+* Implement a relation between `faculty` and `room`. Follow the convention found in this project to add your relation via a `.sql` file to the `database` folder, then update `setup.sql`
+* Implement a relation between `faculty` and `program`. Follow the convention found in this project to add your relation via a `.sql` file to the `database` folder, then update `setup.sql`
 * Add indexes to each table, using `EXPLAIN` to help inform you about which column, or columns, perform best on the index
 * Apply foreign keys with cascades where logical to ensure the database is as robust as possible
 
