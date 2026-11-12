@@ -3,3 +3,4 @@
 !.gitignore
 
 !_01--session_variables.sql
+!_02--faculty.sql
