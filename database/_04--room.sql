@@ -1,0 +1,170 @@
+DROP TABLE IF EXISTS `room`;
+
+CREATE TABLE IF NOT EXISTS `room` (
+  `id`       SMALLINT NOT NULL,
+  `building` ENUM(
+    'A',    -- Beatrice Fox Auerbach Hall
+    'ABR',  -- Abrams Hall
+    'BC',   -- Biology-Chemistry Building
+    'CAS',  -- College of Arts and Sciences (within Hillyer Hall)
+    'CC',   -- Beatrice Fox Auerbach Computer and Administration Center
+    'CETA', -- College of Engineering, Technology, and Architecture
+    'D',    -- Charles A Dana Hall
+    'E',    -- East Hall
+    'ENHP', -- College of Education, Nursing, and Health Professions
+    'F',    -- Alfred C Fuller Music Center
+    'GSU',  -- Gengras Student Union
+    'H',    -- Hillyer Hall
+    'HAS',  -- Hartford Art School
+    'HC',   -- Hursey Center
+    'HJG',  -- Harry Jack Gray Center
+    'ISET', -- Integrated Science, Engineering, and Technology Complex
+    'KON',  -- Konover Campus Center
+    'PR',   -- Park River Apartments
+    'SPCT', -- Sports Center
+    'UC',   -- University Commons
+    'UT'    -- United Technologies Hall
+  )                     NOT NULL,
+  `number`  VARCHAR(8)  NOT NULL,
+  `purpose` VARCHAR(80) NOT NULL,
+  `comment` TEXT        DEFAULT NULL,
+
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;
+
+INSERT INTO `room`
+(id, building, number, purpose)
+VALUES
+(1, 'ABR', '105', @office),
+(2, 'ABR', '106', @office),
+(3, 'ABR', '108', @office),
+(4, 'ABR', '110', @office),
+(5, 'BC', '251', 'Biology Chemistry Lab'),
+(6, 'D', '101', 'Biomedical Engineering'),
+(7, 'D', '102', 'Metrology Lab'),
+(8, 'D', '103', CONCAT(@maae, ' Research Lab')),
+(9, 'D', '104', 'Metrology Lab'),
+(10, 'D', '109', 'Machinery and Power Systems'),
+(11, 'D', '111', 'Smart Grid and Renewable Energy'),
+(12, 'D', '113', 'Faculty Research'),
+(13, 'D', '115', 'Transportation Lab'),
+(14, 'D', '117', 'Adjunct Office'),
+(15, 'D', '119', 'Audio Systems Lab'),
+(16, 'D', '120', 'Digital Audio Lab'),
+(17, 'D', '122', 'Multitrack Recording Lab'),
+(18, 'D', '123', 'Acoustical Engineering I'),
+(19, 'D', '125', 'Civil Engineering'),
+(20, 'D', '126', 'Acoustical Engineering II'),
+(21, 'D', '127', 'Geotechnical Lab'),
+(22, 'D', '129', 'Faculty Research'),
+(23, 'D', '133', 'Machine Shop'),
+(24, 'D', '203', @office),
+(25, 'D', '217', @office),
+(26, 'D', '301', 'Senior Project Room'),
+(27, 'D', '301A', '(Virtual Reality) VR Lab'),
+(28, 'D', '305', @office),
+(29, 'D', '307', 'Adjunct Office'),
+(30, 'D', '310A', @office),
+(31, 'D', '310B', @office),
+(32, 'D', '313', 'Drones Lab'),
+(33, 'D', '315', '(Very Large Scale Integration) VLSI Lab'),
+(34, 'D', '319', '(Digital Signal Processing) DSP Lab'),
+(35, 'D', '320', 'Computer Classroom II'),
+(36, 'D', '321', CONCAT(@ece, ' Instrumentation Lab II')),
+(37, 'D', '322', 'Circuit, Electronics and Digital Lab II'),
+(38, 'D', '323', 'Automation Systems Lab'),
+(39, 'D', '324', 'Circuit, Electronics and Digital Lab I'),
+(40, 'D', '325', 'Circuit, Electronics and Digital Lab III'),
+(41, 'D', '333', @office),
+(42, 'D', '335', @office),
+(43, 'D', '339', CONCAT(@cs, ' Seminar Room')),
+(44, 'D', '341', 'Adjunct Offices'),
+(45, 'D', '343', @office),
+(46, 'D', '402', 'Microprocessor Lab'),
+(47, 'D', '420', 'Computer Classroom III'),
+(48, 'D', '424', CONCAT(@maae, ' Research II')),
+(49, 'D', '426', CONCAT(@maae, ' Research I')),
+(50, 'GSU', '230', @office),
+(51, 'HC', '110', 'High-Bay Structural Engineering'),
+(52, 'HC', '110A', 'Strength of Materials Lab'),
+(53, 'HC', '112', 'Concrete and Surveying Lab'),
+(54, 'HC', '210', 'Mechatronics Lab'),
+(55, 'HC', '212', 'Robotics Lab'),
+(56, 'HC', '216', 'Makerspace'),
+(57, 'HC', '216A', '3D Printing Lab'),
+(58, 'HC', '216B', 'Supply Room'),
+(59, 'HC', '216D', 'Machine Shop'),
+(60, 'HC', '218', 'Machine Shop'),
+(61, 'HC', '309', 'Cybersecurity Lab'),
+(62, 'HC', '311', 'Internet of Things Lab'),
+(63, 'HJG', '101A', 'Architecture Studio'),
+(64, 'HJG', 'W106', 'Architecture Computer Lab'),
+(65, 'HJG', 'W114', 'Architecture North Studio'),
+(66, 'HJG', 'W205A', @office),
+(67, 'HJG', 'W205B', @office),
+(68, 'HJG', 'W205C', @office),
+(69, 'HJG', 'W205D', @office),
+(70, 'HJG', 'W205E', @office),
+(71, 'HJG', 'W205F', @office),
+(72, 'HJG', 'W205H', @office),
+(73, 'UC', '101', @office),
+(74, 'UT', '103', 'Biomedical Instrumentation'),
+(75, 'UT', '104', 'Energy Engineering Lab'),
+(76, 'UT', '105', 'Thermal Systems and Fluids Lab'),
+(77, 'UT', '106', 'Structural and Transportation'),
+(78, 'UT', '107', 'Thermal Systems and Fluids Lab'),
+(79, 'UT', '108', 'Computer Lab I'),
+(80, 'UT', '111', 'Computer Lab and Classroom I'),
+(81, 'UT', '114', 'Computer Lab II'),
+(82, 'UT', '116', 'Tissue Engineering'),
+(83, 'UT', '203', @office),
+(84, 'UT', '205', @office),
+(85, 'UT', '207', 'CETA Mailroom'),
+(86, 'UT', '207A', 'Dean’s Conference Room'),
+(87, 'UT', '209B', @office),
+(88, 'UT', '209C', @office),
+(89, 'UT', '209E', @office),
+(90, 'UT', '212', 'Student Lounge'),
+(91, 'UT', '219', @office),
+(92, 'UT', '220', @office),
+(93, 'UT', '221', @office),
+(94, 'UT', '222', @office),
+(95, 'UT', '223', @office),
+(96, 'UT', '224', @office),
+(97, 'UT', '225', @office),
+(98, 'UT', '226', @office),
+(99, 'UT', '228', @office),
+(100, 'UT', '229', @office),
+(101, 'UT', '230', @office),
+(102, 'UT', '231', @office),
+(103, 'UT', '232', @office),
+(104, 'UT', '233', @office),
+(105, 'UT', '234', @office),
+(106, 'UT', '235', @office),
+(107, 'UT', '236', @office),
+(108, 'UT', '237', @office),
+(109, 'UT', '238', @office),
+(110, 'UT', '239', @office),
+(111, 'UT', '240', @office),
+(112, 'UT', '243', @office),
+(113, 'UT', '302A', @office),
+(114, 'UT', '302B', @office),
+(115, 'UT', '302C', @office),
+(116, 'UT', '302D', @office),
+(117, 'UT', '302E', @office),
+(118, 'UT', '302F', @office),
+(119, 'UT', '302G', @office),
+(120, 'UT', '302H', @office),
+(121, 'UT', '302I', @office),
+(122, 'UT', '302J', @office),
+(123, 'UT', '302M', @office),
+(124, 'UT', '304A', @office),
+(125, 'UT', '304B', @office),
+(126, 'UT', '304C', @office),
+(127, 'UT', '304D', @office),
+(128, 'UT', '304E', @office),
+(129, 'UT', '304F', @office),
+(130, 'UT', '304G', @office),
+(131, 'UT', '304J', @office),
+(132, 'UT', '304H', @office),
+(133, 'UT', '304I', @office);
