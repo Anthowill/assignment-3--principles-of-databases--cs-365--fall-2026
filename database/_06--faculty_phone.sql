@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `faculty_phone`;
+
+CREATE TABLE IF NOT EXISTS `faculty_phone` (
+  `email`     VARCHAR(128) NOT NULL,
+  `extension` SMALLINT     NOT NULL,
+
+  PRIMARY KEY (email),
+
+  FOREIGN KEY (email) REFERENCES faculty (email)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+
+  FOREIGN KEY (extension) REFERENCES phone (extension)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;

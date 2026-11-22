@@ -11,3 +11,4 @@ SOURCE _02--faculty.sql;
 SOURCE _03--phone.sql;
 SOURCE _04--room.sql;
 SOURCE _05--program.sql;
+SOURCE _06--faculty_phone.sql;
