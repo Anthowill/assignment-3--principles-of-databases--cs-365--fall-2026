@@ -36,3 +36,19 @@ FROM room AS r
   INNER JOIN faculty_phone AS fp ON fp.email = f.email
 WHERE r.building = 'UT' AND r.number LIKE '2%'
 ORDER BY `Department`, `Location`;
+
+-- 5. Faculty members who direct programs, ordered by program
+SELECT DISTINCT CONCAT(f.first_name, ' ', f.last_name) AS `Faculty`,
+       '' AS `...directs...`,
+       CONCAT(p.name, ' (', p.department, ')') AS `Program (Department)`
+FROM program AS p
+  INNER JOIN faculty_program AS fp ON fp.program_id = p.id
+  INNER JOIN faculty AS f ON f.email = fp.email
+ORDER BY `Program (Department)`;
+
+-- 6. Faculty who are assistant, associate, or full professors, ordered by rank
+SELECT CONCAT(first_name, ' ', last_name) AS `Faculty`,
+       `rank` AS `Rank`
+FROM faculty
+WHERE `rank` IN ('Assistant Professor', 'Associate Professor', 'Professor')
+ORDER BY `rank`;
